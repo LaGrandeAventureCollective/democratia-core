@@ -1,0 +1,4 @@
+plugins:
+  democratia_core_enabled:
+    default: true
+    client: true
