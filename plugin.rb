@@ -10,6 +10,7 @@ enabled_site_setting :democratia_core_enabled
 require_relative "lib/democratia_core/engine"
 
 DEMOCRATIA_ONBOARDING_COMPLETED_FIELD = "democratia_onboarding_completed"
+require_dependency "user"
 register_user_custom_field_type(DEMOCRATIA_ONBOARDING_COMPLETED_FIELD, :boolean)
 
 
