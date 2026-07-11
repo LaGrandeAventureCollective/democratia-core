@@ -13,6 +13,7 @@ DEMOCRATIA_ONBOARDING_COMPLETED_FIELD = "democratia_onboarding_completed"
 
 
 after_initialize do
+  Discourse::Application.routes.append { mount ::DemocratiaCore::Engine, at: "/democratia" }
   register_user_custom_field_type(DEMOCRATIA_ONBOARDING_COMPLETED_FIELD, :boolean)
   Rails.logger.info("Democratia Core loaded successfully")
 end
