@@ -8,11 +8,13 @@ function initializeDemocratiaOnboarding(api, container) {
     return;
   }
 
-  const router = container.lookup("service:router");
+  if (window.location.pathname.startsWith("/democratia/onboarding")) {
+    return;
+  }
 
   ajax("/democratia/onboarding/status").then((result) => {
     if (!result.onboarding_completed) {
-      router.transitionTo("/democratia/onboarding");
+      window.location.assign("/democratia/onboarding");
     }
   });
 }
