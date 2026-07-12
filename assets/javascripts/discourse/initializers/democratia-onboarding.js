@@ -1,7 +1,7 @@
 import { ajax } from "discourse/lib/ajax";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
-function initializeDemocratiaOnboarding(api, container) {
+function checkDemocratiaOnboarding(api) {
   const currentUser = api.getCurrentUser();
 
   if (!currentUser) {
@@ -22,7 +22,10 @@ function initializeDemocratiaOnboarding(api, container) {
 export default {
   name: "democratia-onboarding",
 
-  initialize(container) {
-    withPluginApi((api) => initializeDemocratiaOnboarding(api, container));
+  initialize() {
+    withPluginApi((api) => {
+      checkDemocratiaOnboarding(api);
+      api.onPageChange(() => checkDemocratiaOnboarding(api));
+    });
   },
 };
