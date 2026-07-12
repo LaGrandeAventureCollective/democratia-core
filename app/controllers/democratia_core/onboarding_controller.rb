@@ -11,7 +11,7 @@ module ::DemocratiaCore
     def show
       render json: {
         onboarding_completed: current_user.custom_fields[
-          DEMOCRATIA_ONBOARDING_COMPLETED_FIELD
+          "democratia_onboarding_completed"
         ] == true,
       }
     end
