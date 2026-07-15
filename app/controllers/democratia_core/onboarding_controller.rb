@@ -3,6 +3,7 @@
 module ::DemocratiaCore
   class OnboardingController < ::ApplicationController
     requires_login
+    skip_before_action :preload_json
 
     def page
       render plain: "Bienvenue dans La Grande Aventure Collective", layout: false
