@@ -5,7 +5,7 @@ module ::DemocratiaCore
     requires_login
 
     def page
-      render plain: "Bienvenue dans La Grande Aventure Collective"
+      render plain: "Bienvenue dans La Grande Aventure Collective", layout: false
     end
 
     def show
